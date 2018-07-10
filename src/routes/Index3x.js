@@ -1,6 +1,6 @@
 import React from 'react'
 import { Element } from 'rc-scroll-anim'
-import systemImg from '../assets/pic.png'
+import systemImg from '../assets/pic2.png'
 
 export default function Index1(props) {
   const { clientWidth } = document.body
@@ -27,7 +27,7 @@ export default function Index1(props) {
       >
         About Genesis Space
       </div> */}
-      <div className="flex flexWrap allWidth">
+      <div className="flex flexWrap">
         <div
           style={{
             maxWidth: Math.min(520, clientWidth - 40),
@@ -41,7 +41,7 @@ export default function Index1(props) {
               fontFamily: 'Avenir-Heavy',
               lineHeight: `${getCommonValue('lineHeight', 84)}px`,
             }}>
-            Decentralized<br />Autonomous<br />Organization<br />(DAO)
+            Genesis<br />Economic Model
           </div>
           <div
             style={{
@@ -52,11 +52,11 @@ export default function Index1(props) {
               fontFamily: 'PingFangSC-Regular',
               lineHeight: `${getCommonValue('lineHeight', 40)}px`,
             }}>
-            Genesis is a DAO (decentralized autonomous organization) based on blockchain. In Genesis, users (nodes) vote to update community rules and blockchain protocols. Genesis has multiple side chains providing functions like file storage and dapp store.
+            Genesis has a sophiscated yet simplified tokenomics. Just like in a real world where all energy come from the Sun, we reckon time people spend in Genesis is the original drive in the system. Therefore, we have designed a tokenomic where ordinary people can gain token just for being online.
           </div>
         </div>
-        <div className="flex1 allWidth" style={{ paddingLeft: !isMobile ? 100 : 0 }}>
-          <div className="textCenter allWidth" style={{ height: 336, minWidth: 350 }}>
+        <div className="flex1" style={{ paddingLeft: !isMobile ? 100 : 0 }}>
+          <div className="textCenter" style={{ height: 416, minWidth: 350 }}>
             <img src={systemImg} alt="img" style={{ width: '100%' }} />
           </div>
           {/* <div

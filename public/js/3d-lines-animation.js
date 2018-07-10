@@ -1,7 +1,7 @@
 var mouseX = 0, mouseY = 0,
 
             windowHalfX = window.innerWidth / 2,
-            windowHalfY = 800,
+            windowHalfY = window.innerHeight / 2,
 
             SEPARATION = 200,
             AMOUNTX = 1,
@@ -26,7 +26,7 @@ var mouseX = 0, mouseY = 0,
                 canvasBanner = document.getElementById("canvasBanner");
 
 
-                camera = new THREE.PerspectiveCamera( 75, window.innerWidth / 800, 1, 10000 );
+                camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
                 camera.position.z = 300;
 
                 scene = new THREE.Scene();
@@ -34,7 +34,7 @@ var mouseX = 0, mouseY = 0,
                 renderer = new THREE.CanvasRenderer({ alpha: true });
                 renderer.setPixelRatio( window.devicePixelRatio );
                 renderer.setClearColor( 0x000000, 0 );   // canvas background color
-                renderer.setSize( window.innerWidth, 800 );
+                renderer.setSize( window.innerWidth, window.innerHeight );
                 canvasBanner.appendChild( renderer.domElement );
 
 
@@ -96,12 +96,12 @@ var mouseX = 0, mouseY = 0,
             function onWindowResize() {
 
                 windowHalfX = window.innerWidth / 2;
-                windowHalfY = 800;
+                windowHalfY = window.innerHeight;
 
-                camera.aspect = window.innerWidth / 800;
+                camera.aspect = window.innerWidth / window.innerHeight;
                 camera.updateProjectionMatrix();
 
-                renderer.setSize( window.innerWidth, 800 );
+                renderer.setSize( window.innerWidth, window.innerHeight );
 
             }
 

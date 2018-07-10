@@ -2,6 +2,8 @@ import React from 'react'
 import { Element } from 'rc-scroll-anim'
 
 export default function Index5(props) {
+  const { getCommonValue, isMobile } = props
+  const { clientWidth } = document.body
   const newsList = [
     {
       img: '',
@@ -19,11 +21,13 @@ export default function Index5(props) {
   return (
     <Element
       id="index5"
+      targetId="root"
       className="allWidth"
       style={{
         height: 576,
         background: '#f4f4f8',
         color: '#3A4E7F',
+        padding: '0 20px',
       }}
     >
       <div
@@ -31,39 +35,55 @@ export default function Index5(props) {
           maxWidth: 1200,
           margin: '74px auto 40px auto',
           fontFamily: 'Avenir-Black',
-          fontSize: 64,
+          fontSize: getCommonValue('fontSize', 64),
+          textAlign: isMobile ? 'center' : '',
         }}
       >
         News
       </div>
       {
         newsList.map(el => (
-          <div className="flex" style={{ margin: '30px auto 0', maxWidth: 1200 }}>
-            <div className="textCenter" style={{ width: 200, height: 120, background: '#aab2c7' }}>
+          <div
+            className="allWidth flex flexWrap"
+            style={{ margin: '30px auto 0', maxWidth: 1200 }}
+          >
+            <div
+              className="textCenter"
+              style={{
+                width: isMobile ? clientWidth * 0.3 : 200,
+                height: isMobile ? clientWidth * 0.18 : 120,
+                background: '#aab2c7',
+              }}
+            >
               img
             </div>
             <div className="flex1" style={{ marginLeft: 30 }}>
               <div
                 style={{
                   fontFamily: 'PingFangSC-Medium',
-                  fontSize: 24,
+                  fontSize: getCommonValue('fontSize', 24),
                 }}
               >
                 {el.title}
               </div>
               <div
-                className="marginTop10 fs16"
+                className="marginTop10"
                 style={{
                   opacity: 0.7,
+                  fontSize: getCommonValue('fontSize', 16),
                 }}
               >
-                {el.desc}
+                {
+                  isMobile
+                    ? `${el.desc.substr(0, 50)}...`
+                    : el.desc
+                }
               </div>
               <div
                 className="pointer"
                 style={{
                   opacity: 0.4,
-                  fontSize: 16,
+                  fontSize: getCommonValue('fontSize', 16),
                   marginTop: 20,
                 }}
               >
@@ -73,8 +93,8 @@ export default function Index5(props) {
           </div>
         ))
       }
-      <div className="pointer fs14" style={{ maxWidth: 1200, margin: '30px auto' }} >
-        <div style={{ marginLeft: 230 }}>
+      <div className="pointer fs16" style={{ maxWidth: 1200, margin: '30px auto' }} >
+        <div style={{ marginLeft: isMobile ? 0 : 230, textAlign: isMobile ? 'center' : '' }}>
           all news
         </div>
       </div>

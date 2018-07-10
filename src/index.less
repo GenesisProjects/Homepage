@@ -1,6 +1,3 @@
-
-
-
 :global {
   html, body {
     width: 100%;
@@ -11,8 +8,11 @@
     box-sizing: border-box;
     background-color: #fefefe;
   }
-  body::-webkit-scrollbar {
+  #root::-webkit-scrollbar {
     display: none;
+  }
+  #root {
+    -webkit-overflow-scrolling: touch;
   }
   div {
     z-index: inherit;
